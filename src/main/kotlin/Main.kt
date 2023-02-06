@@ -1,21 +1,26 @@
 import java.util.*
 
-fun main(args: Array<String>) {
+fun main() {
     println("Enter the Nth number:")
-    var scanner = Scanner(System.`in`)
-    var len: Int = scanner.nextInt()
-    var x = fibo(len)
+    val scanner = Scanner(System.`in`)
+    val len: Int = scanner.nextInt()
     println("the first $len term of fibbo is:")
-    print(x)
+    fibo(len)
 
 }
 
-tailrec fun fibo(length: Int): Long {
-    var sum: Int = 0
-    var temp1: Int = 0
-    var temp2: Int = 1
+ fun fibo(length: Int){
+    var sumTotal =0
+    var sum  = 0
+    var temp1 = 0
+    var temp2  = 1
     for (i in 1 .. length){
-        println("$length ")
+        print("$sum ")
+        sumTotal+=sum
         sum = temp1 + temp2
+        temp1 =temp2
+        temp2 = sum
     }
+    print("\n")
+    print(sumTotal)
 }
