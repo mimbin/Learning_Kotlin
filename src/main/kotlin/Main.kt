@@ -1,26 +1,16 @@
-import java.util.*
-
 fun main() {
-    println("Enter the Nth number:")
-    val scanner = Scanner(System.`in`)
-    val len: Int = scanner.nextInt()
-    println("the first $len term of fibbo is:")
-    fibo(len)
-
-}
-
- fun fibo(length: Int){
-    var sumTotal =0
-    var sum  = 0
-    var temp1 = 0
-    var temp2  = 1
-    for (i in 1 .. length){
-        print("$sum ")
-        sumTotal+=sum
-        sum = temp1 + temp2
-        temp1 =temp2
-        temp2 = sum
+    val weekday = "Friday"
+    val hour = 17
+    var isOpen = when (weekday){
+        "Monday" 	-> hour in 8..12;
+            "Tuesday" 	-> hour in 8..18;
+            "Wednesday" -> hour in 8..18;
+            "Thursday" 	-> hour in 8..18;
+            "Friday"	-> hour in 8..21;
+            "Saturday"	-> hour in 9..16;
+            "Sunday"	-> hour in 8..16;
+        else		-> false
     }
-    print("\n")
-    print(sumTotal)
+    var status = if (isOpen) "Open" else "Closed!"
+    println("on $weekday, on $hour O'clock the Lemon Restaurant is: $status" )
 }
